@@ -15,14 +15,14 @@ equation
 
   der(x1) = x2;
   der(x2) = (u - M*g*L*sin(x1))/(M*L^2);
-  y = x1;
+  y = x1*180/3.14159;
   // Inset krag is nul geval:
-  // u = 0;
+  u = 0;
   // Inset krag is 'n sinusgolf
-  u = sin(0.5*time);
+  //u = sin(0.5*time);
   
 
 annotation(
-    experiment(StartTime = 0, StopTime = 100, Tolerance = 1e-06, Interval = 0.001));
+    experiment(StartTime = 0, StopTime = 10, Tolerance = 1e-06, Interval = 0.001));
     
 end pendulumEenvoudig;

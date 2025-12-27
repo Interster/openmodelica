@@ -24,5 +24,6 @@ end when;
 
 
 annotation(
-    uses(Modelica(version = "4.1.0")));
+    uses(Modelica(version = "4.1.0")),
+  experiment(StartTime = 0, StopTime = 1, Tolerance = 1e-06, Interval = 0.002));
 end temp;

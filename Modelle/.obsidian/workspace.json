@@ -22,7 +22,7 @@
             }
           },
           {
-            "id": "5855e07ab61eaf70",
+            "id": "2d19c13e07c8fa10",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -34,9 +34,37 @@
               "icon": "lucide-file",
               "title": "Pendulum"
             }
+          },
+          {
+            "id": "0bfe088e305432bd",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Pendulum beheer.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Pendulum beheer"
+            }
+          },
+          {
+            "id": "5855e07ab61eaf70",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Pendulum beheer.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "Pendulum beheer"
+            }
           }
         ],
-        "currentTab": 1
+        "currentTab": 3
       }
     ],
     "direction": "vertical"
@@ -109,7 +137,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Pendulum.md",
+                "file": "Excalidraw/Drawing 2025-12-23 16.45.28.excalidraw.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -119,7 +147,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Backlinks for Pendulum"
+              "title": "Backlinks for Drawing 2025-12-23 16.45.28.excalidraw"
             }
           },
           {
@@ -128,12 +156,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Pendulum.md",
+                "file": "Excalidraw/Drawing 2025-12-23 16.45.28.excalidraw.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               },
               "icon": "links-going-out",
-              "title": "Outgoing links from Pendulum"
+              "title": "Outgoing links from Drawing 2025-12-23 16.45.28.excalidraw"
             }
           },
           {
@@ -157,13 +185,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Pendulum.md",
+                "file": "Excalidraw/Drawing 2025-12-23 16.45.28.excalidraw.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "Outline of Pendulum"
+              "title": "Outline of Drawing 2025-12-23 16.45.28.excalidraw"
             }
           }
         ]
@@ -187,9 +215,12 @@
   },
   "active": "5855e07ab61eaf70",
   "lastOpenFiles": [
-    "Excalidraw/VryliggamDiagramPendulum.md",
-    "OpenModelica.md",
     "Pendulum.md",
+    "Excalidraw/Drawing 2025-12-23 16.45.28.excalidraw.md",
+    "Excalidraw/VryliggamDiagramPendulum.md",
+    "Pendulum beheer.md",
+    "Excalidraw/BeheerPendulumVryliggamDiagram.md",
+    "OpenModelica.md",
     "Excalidraw"
   ]
 }

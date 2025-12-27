@@ -11,3 +11,6 @@ $$
 y & = x_1
 \end{align}
 $$
+waar 
+$x_1(t)$ die pendulum hoek is m.b.t. die afwaartse vertikale lyn (positief antikloksgewys)
+$x_2(t)$ die pendulum hoeksnelheid is (positief antikloksgewys)
