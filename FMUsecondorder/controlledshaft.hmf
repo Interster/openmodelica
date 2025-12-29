@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<hopsanmodelfile hopsanguiversion="2.23.1.20251001.1413" hopsancoreversion="2.23.1.20251001.1413" hmfversion="0.4">
+  <requirements>
+    <componentlibrary>
+      <id>59c07d33-554f-49d3-a163-a928823d4380</id>
+      <name>HopsanDefaultComponentLibrary</name>
+    </componentlibrary>
+  </requirements>
+  <system typename="Subsystem" locked="false" subtypename="" disabled="false" name="controlledshaft" cqstype="UndefinedCQSType">
+    <simulationtime timestep="0.001" stop="100" inherit_timestep="true" start="0"/>
+    <simulationlogsettings starttime="0" numsamples="2048"/>
+    <parameters/>
+    <aliases/>
+    <hopsangui alwaysvisible="0">
+      <pose x="0" y="0" a="0" flipped="false"/>
+      <nametext position="0" nametextvisible="0"/>
+      <animation hydraulicminpressure="0" disabled="false" flowspeed="100" hydraulicmaxpressure="20000000"/>
+      <viewport x="2500.5" y="2500" zoom="1"/>
+      <ports hidden="0"/>
+      <names hidden="1"/>
+      <graphics type="user"/>
+      <hopsanobjectappearance version="0.3">
+        <modelobject typename="Subsystem" displayname="controlledshaft">
+          <icons>
+            <icon type="defaultmissing" path="subsystemDefault.svg"/>
+          </icons>
+          <ports/>
+          <animation hydraulicminpressure="0" flowspeed="100" hydraulicmaxpressure="20000000"/>
+        </modelobject>
+      </hopsanobjectappearance>
+      <optimization>
+        <settings>
+          <iterations>100</iterations>
+          <nsearchp>8</nsearchp>
+          <refcoeff>1.3</refcoeff>
+          <randfac>0.3</randfac>
+          <forgfac>0</forgfac>
+          <partol>0.0001</partol>
+          <plot>true</plot>
+          <savecsv>false</savecsv>
+          <finaleval>true</finaleval>
+          <logpar>false</logpar>
+        </settings>
+        <parameters>
+          <parameter>
+            <component>SignalPID</component>
+            <parameter>KI#Value</parameter>
+            <minmax>0 100</minmax>
+          </parameter>
+          <parameter>
+            <component>SignalPID</component>
+            <parameter>Kp#Value</parameter>
+            <minmax>0 100</minmax>
+          </parameter>
+        </parameters>
+        <objectives>
+          <objective>
+            <functionname>Absolute Average Difference</functionname>
+            <weight>1</weight>
+            <norm>1</norm>
+            <exp>2</exp>
+            <plotvariables>
+              <variable>
+                <component>Ramp</component>
+                <port>out</port>
+                <variable>Value</variable>
+              </variable>
+              <variable>
+                <component>controlledshaft2FMU</component>
+                <port>y</port>
+                <variable>Value</variable>
+              </variable>
+            </plotvariables>
+          </objective>
+        </objectives>
+      </optimization>
+      <senstivitityanalysis>
+        <settings>
+          <iterations>100</iterations>
+          <distribution>uniform</distribution>
+        </settings>
+        <parameters/>
+        <plotvariables/>
+      </senstivitityanalysis>
+    </hopsangui>
+    <objects>
+      <component typename="SignalRamp" locked="false" subtypename="" disabled="false" name="Ramp" cqstype="S">
+        <parameters>
+          <parameter value="0" type="double" unit="" internal="false" name="y_0#Value"/>
+          <parameter value="150" type="double" unit="" internal="false" name="y_A#Value"/>
+          <parameter value="1" type="double" unit="s" internal="false" name="t_start#Value"/>
+          <parameter value="2" type="double" unit="s" internal="false" name="t_end#Value"/>
+        </parameters>
+        <ports>
+          <port nodetype="NodeSignal" name="y_0"/>
+          <port nodetype="NodeSignal" name="y_A"/>
+          <port nodetype="NodeSignal" name="t_start"/>
+          <port nodetype="NodeSignal" name="t_end"/>
+          <port nodetype="NodeSignal" name="out" porttype="WritePortType"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose x="2242" y="2497.6" a="0" flipped="false"/>
+          <nametext position="0" nametextvisible="0"/>
+          <animation hydraulicminpressure="0" flowspeed="100" hydraulicmaxpressure="20000000"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject typename="SignalRamp" displayname="Ramp">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component typename="SignalPID" locked="false" subtypename="" disabled="false" name="SignalPID" cqstype="S">
+        <parameters>
+          <parameter value="0" type="double" unit="" internal="false" name="yref#Value"/>
+          <parameter value="0" type="double" unit="" internal="false" name="y#Value"/>
+          <parameter value="0" type="double" unit="" internal="false" name="dy#Value"/>
+          <parameter value="100" type="double" unit="" internal="false" name="Kp#Value"/>
+          <parameter value="99.999999890229361" type="double" unit="" internal="false" name="KI#Value"/>
+          <parameter value="1" type="double" unit="" internal="false" name="Kd#Value"/>
+          <parameter value="-1500" type="double" unit="" internal="false" name="umin#Value"/>
+          <parameter value="1500" type="double" unit="" internal="false" name="umax#Value"/>
+          <parameter value="0" type="double" unit="" internal="false" name="u#Value"/>
+          <parameter value="0" type="double" unit="" internal="false" name="Ierr#Value"/>
+          <parameter value="0" type="double" unit="" internal="false" name="uI#Value"/>
+        </parameters>
+        <ports>
+          <port nodetype="NodeSignal" name="yref" porttype="ReadPortType"/>
+          <port nodetype="NodeSignal" name="y" porttype="ReadPortType"/>
+          <port nodetype="NodeSignal" name="dy" porttype="ReadPortType"/>
+          <port nodetype="NodeSignal" name="Kp"/>
+          <port nodetype="NodeSignal" name="KI"/>
+          <port nodetype="NodeSignal" name="Kd"/>
+          <port nodetype="NodeSignal" name="umin"/>
+          <port nodetype="NodeSignal" name="umax"/>
+          <port nodetype="NodeSignal" name="u" porttype="WritePortType"/>
+          <port nodetype="NodeSignal" name="Ierr"/>
+          <port nodetype="NodeSignal" name="uI"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose x="2355" y="2509" a="0" flipped="false"/>
+          <nametext position="0" nametextvisible="0"/>
+          <animation hydraulicminpressure="0" flowspeed="100" hydraulicmaxpressure="20000000"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject typename="SignalPID" displayname="SignalPID">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component typename="SignalUnitDelay" locked="false" subtypename="" disabled="false" name="Arithmetic_Loop_Delay_Hint" cqstype="S">
+        <parameters>
+          <parameter value="0" type="double" unit="" internal="false" name="in#Value"/>
+          <parameter value="0" type="double" unit="" internal="false" name="out#Value"/>
+        </parameters>
+        <ports>
+          <port nodetype="NodeSignal" name="in" porttype="ReadPortType"/>
+          <port nodetype="NodeSignal" name="out" porttype="WritePortType"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose x="2623" y="2509" a="0" flipped="false"/>
+          <nametext position="0" nametextvisible="0"/>
+          <animation hydraulicminpressure="0" flowspeed="100" hydraulicmaxpressure="20000000"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject typename="SignalUnitDelay" displayname="Arithmetic_Loop_Delay_Hint">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+      <component typename="FMIWrapper" locked="false" subtypename="" disabled="false" name="controlledshaft2FMU" cqstype="S">
+        <parameters>
+          <parameter value="C:/Users/Niel/AppData/Local/Temp/OpenModelica/OMEdit/controlledshaft2FMU.fmu" type="filepath" unit="" internal="false" name="path"/>
+          <parameter value="false" type="bool" unit="" internal="false" name="reinstantiate"/>
+          <parameter value="1e-006" type="double" unit="" internal="false" name="tol"/>
+          <parameter value="false" type="bool" unit="" internal="false" name="loggingOn"/>
+          <parameter value="0" type="double" unit="" internal="false" name="u#Value"/>
+          <parameter value="10" type="double" unit="N.m.s/rad" internal="false" name="damper_d"/>
+          <parameter value="0.0001" type="double" unit="rad" internal="false" name="damper_phi_nominal"/>
+          <parameter value="0" type="double" unit="rad" internal="false" name="fixed_phi0"/>
+          <parameter value="0.1" type="double" unit="kg.m2" internal="false" name="inertia_J"/>
+          <parameter value="y" type="string" unit="" internal="false" name="visibleOutputs"/>
+        </parameters>
+        <ports>
+          <port nodetype="NodeSignal" name="damper_phi_rel"/>
+          <port nodetype="NodeSignal" name="damper_w_rel"/>
+          <port nodetype="NodeSignal" name="der_damper_phi_rel_"/>
+          <port nodetype="NodeSignal" name="der_damper_w_rel_"/>
+          <port nodetype="NodeSignal" name="der_inertia_phi_"/>
+          <port nodetype="NodeSignal" name="der_inertia_w_"/>
+          <port nodetype="NodeSignal" name="damper_a_rel"/>
+          <port nodetype="NodeSignal" name="damper_lossPower"/>
+          <port nodetype="NodeSignal" name="damper_tau"/>
+          <port nodetype="NodeSignal" name="inertia_a"/>
+          <port nodetype="NodeSignal" name="inertia_flange_a_tau"/>
+          <port nodetype="NodeSignal" name="inertia_flange_b_tau"/>
+          <port nodetype="NodeSignal" name="inertia_phi"/>
+          <port nodetype="NodeSignal" name="inertia_w"/>
+          <port nodetype="NodeSignal" name="speedSensor_flange_tau"/>
+          <port nodetype="NodeSignal" name="u" porttype="ReadPortType"/>
+          <port nodetype="NodeSignal" name="y" porttype="WritePortType"/>
+          <port nodetype="NodeSignal" name="damper_flange_a_tau"/>
+          <port nodetype="NodeSignal" name="damper_flange_b_phi"/>
+          <port nodetype="NodeSignal" name="damper_flange_b_tau"/>
+          <port nodetype="NodeSignal" name="fixed_flange_tau"/>
+          <port nodetype="NodeSignal" name="inertia_flange_a_phi"/>
+          <port nodetype="NodeSignal" name="inertia_flange_b_phi"/>
+          <port nodetype="NodeSignal" name="speedSensor_flange_phi"/>
+          <port nodetype="NodeSignal" name="speedSensor_w"/>
+          <port nodetype="NodeSignal" name="torque_flange_phi"/>
+          <port nodetype="NodeSignal" name="torque_flange_tau"/>
+          <port nodetype="NodeSignal" name="torque_tau"/>
+        </ports>
+        <hopsangui alwaysvisible="0">
+          <pose x="2500" y="2509" a="0" flipped="false"/>
+          <nametext position="0" nametextvisible="0"/>
+          <animation hydraulicminpressure="0" flowspeed="100" hydraulicmaxpressure="20000000"/>
+          <hopsanobjectappearance version="0.3">
+            <modelobject typename="FMIWrapper" displayname="controlledshaft2FMU">
+              <ports/>
+            </modelobject>
+          </hopsanobjectappearance>
+        </hopsangui>
+      </component>
+    </objects>
+    <connections>
+      <connect endcomponent="SignalPID" startport="out" startcomponent="Ramp" endport="yref">
+        <hopsangui>
+          <coordinates>
+            <coordinate x="2254.50000000000000000000" y="2497.59999999999990905053"/>
+            <coordinate x="2307.00000000000000000000" y="2497.59999999999990905053"/>
+            <coordinate x="2307.00000000000000000000" y="2497.59999999999990905053"/>
+            <coordinate x="2327.00000000000000000000" y="2497.59999999999990905053"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+            <geometry>vertical</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="controlledshaft2FMU" startport="u" startcomponent="SignalPID" endport="u">
+        <hopsangui>
+          <coordinates>
+            <coordinate x="2383.00000000000000000000" y="2509.00000000000000000000"/>
+            <coordinate x="2435.50000000000000000000" y="2509.00000000000000000000"/>
+            <coordinate x="2435.50000000000000000000" y="2509.00000000000000000000"/>
+            <coordinate x="2455.50000000000000000000" y="2509.00000000000000000000"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+            <geometry>vertical</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="Arithmetic_Loop_Delay_Hint" startport="y" startcomponent="controlledshaft2FMU" endport="in">
+        <hopsangui>
+          <coordinates>
+            <coordinate x="2544.50000000000000000000" y="2509.00000000000000000000"/>
+            <coordinate x="2585.50000000000000000000" y="2509.00000000000000000000"/>
+            <coordinate x="2585.50000000000000000000" y="2509.00000000000000000000"/>
+            <coordinate x="2605.50000000000000000000" y="2509.00000000000000000000"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+            <geometry>vertical</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+      <connect endcomponent="SignalPID" startport="out" startcomponent="Arithmetic_Loop_Delay_Hint" endport="y">
+        <hopsangui>
+          <coordinates>
+            <coordinate x="2640.50000000000000000000" y="2509.00000000000000000000"/>
+            <coordinate x="2680.00000000000000000000" y="2509.00000000000000000000"/>
+            <coordinate x="2680.00000000000000000000" y="2600.00000000000000000000"/>
+            <coordinate x="2296.00000000000000000000" y="2600.00000000000000000000"/>
+            <coordinate x="2296.00000000000000000000" y="2509.00000000000000000000"/>
+            <coordinate x="2327.00000000000000000000" y="2509.00000000000000000000"/>
+          </coordinates>
+          <geometries>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+            <geometry>vertical</geometry>
+            <geometry>horizontal</geometry>
+            <geometry>vertical</geometry>
+          </geometries>
+          <style>solid</style>
+        </hopsangui>
+      </connect>
+    </connections>
+  </system>
+</hopsanmodelfile>
