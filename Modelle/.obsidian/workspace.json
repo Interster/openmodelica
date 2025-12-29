@@ -55,12 +55,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pendulum beheer.md",
+                "file": "FMU/FMU - Functional mockup unit.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Pendulum beheer"
+              "title": "FMU - Functional mockup unit"
             }
           }
         ],
@@ -215,12 +215,20 @@
   },
   "active": "5855e07ab61eaf70",
   "lastOpenFiles": [
+    "FMU/ExportFMU.png",
+    "FMU/FMU - Functional mockup unit.md",
+    "FMU/Doelfunksie.png",
+    "FMU/Insetparameter.png",
+    "FMU/Optimeringsalgoritme.png",
+    "FMU/Optimeer.png",
+    "FMU/FMU in Hopsan.png",
+    "FMU",
+    "OpenModelica.md",
+    "Pendulum beheer.md",
     "Pendulum.md",
     "Excalidraw/Drawing 2025-12-23 16.45.28.excalidraw.md",
     "Excalidraw/VryliggamDiagramPendulum.md",
-    "Pendulum beheer.md",
     "Excalidraw/BeheerPendulumVryliggamDiagram.md",
-    "OpenModelica.md",
     "Excalidraw"
   ]
 }
