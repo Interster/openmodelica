@@ -1,6 +1,7 @@
 model helloworld
   // Bron:  Principles of Object-Oriented Modeling and Simulation with Modelica 3.3
-  //
+  // Second Edition
+  // Peter Fritzson
   // Bl. 20 in Principles of Object modellling
   Real x(start = 1);
 parameter Real a = 1;
