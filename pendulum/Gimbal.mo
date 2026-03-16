@@ -1,69 +1,115 @@
 package Gimbal
   model MotorBrushless
-  
-  Modelica.Blocks.Interfaces.RealInput u annotation(
+    Modelica.Blocks.Interfaces.RealInput u annotation(
+    Modelica.Blocks.Interfaces.RealInput u annotation(
       Placement(transformation(origin = {-106, 0}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {-106, 0}, extent = {{-20, -20}, {20, 20}})));
-  Modelica.Blocks.Interfaces.RealOutput y annotation(
+    Modelica.Blocks.Interfaces.RealOutput y annotation(
+    Modelica.Blocks.Interfaces.RealOutput y annotation(
       Placement(transformation(origin = {92, 0}, extent = {{-10, -10}, {10, 10}}), iconTransformation(origin = {92, 0}, extent = {{-10, -10}, {10, 10}})));
-  
-  parameter Real Kt = 1;   // Motor konstante van borsellose motor [N.m/ampere]
+    parameter Real Kt = 1;
+    // Motor konstante van borsellose motor [N.m/ampere]
+    parameter Real Kt = 1;
+    // Motor konstante van borsellose motor [N.m/ampere]
   equation
-  
-  y = Kt*u;
-
-  annotation(
+    y = Kt*u;
+    annotation(
+    y = Kt*u;
+    annotation(
       Icon(graphics = {Ellipse(origin = {0, -1}, extent = {{-54, 53}, {54, -53}}), Ellipse(origin = {0, -1}, extent = {{-42, 43}, {42, -43}}), Line(origin = {-35.0362, 32.9638}, points = {{-34.9638, -32.9638}, {-30.9638, -12.9638}, {-18.9638, 7.03619}, {-2.96381, 21.0362}, {17.0362, 31.0362}, {35.0362, 33.0362}}), Line(origin = {-7, 70}, points = {{-7, 4}, {7, -4}}), Line(origin = {-6, 63}, points = {{-8, -5}, {6, 3}}), Text(origin = {-74, 66}, extent = {{18, 8}, {0, -8}}, textString = "T")}));
-
   end MotorBrushless;
 
   model PhysicalPendulum
-  // Inset draaimoment
-  Modelica.Blocks.Interfaces.RealInput u annotation(
+    // Inset draaimoment
+    Modelica.Blocks.Interfaces.RealInput u annotation(
+    // Inset draaimoment
+    Modelica.Blocks.Interfaces.RealInput u annotation(
       Placement(transformation(origin = {-104, 0}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {-44, 6}, extent = {{-20, -20}, {20, 20}})));
-  // Model van youtube.com/watch?v=3jofcOmvWj0
-    parameter Real M = 20; // Massa van die pendulum [kg]
-    parameter Real I = 0.2; // Traagheid van die fisiese pendulum [kg.m^2]
-    parameter Real L = 0.001; // Lengte van die swaartepunt van die pendulum tot die rotasiepunt [m]
-    parameter Real g = 9.81; // Gravitasieversnelling [m/s^2]
-    parameter Real mus = 0.06; // Statiese wrywingskoeffisient van laer
-    parameter Real mud = 0.05; // Dinamiese wrywingskoeffisient van laer
-    parameter Real rlaer = 0.015;     // Radius van die laer [m]
-    Real x1(start = 0); // Pendulum hoekverplasing
-    Real x2(start = 0);     // Pendulum hoeksnelheid
-    Real Tw; // Wrywing draaimoment
-    Real Dryf; // Andrywingsdraaimoment
+    // Model van youtube.com/watch?v=3jofcOmvWj0
+    parameter Real M = 20;
+    // Massa van die pendulum [kg]
+    parameter Real I = 0.2;
+    // Traagheid van die fisiese pendulum [kg.m^2]
+    parameter Real L = 0.001;
+    // Lengte van die swaartepunt van die pendulum tot die rotasiepunt [m]
+    parameter Real g = 9.81;
+    // Gravitasieversnelling [m/s^2]
+    parameter Real mus = 0.06;
+    // Statiese wrywingskoeffisient van laer
+    parameter Real mud = 0.05;
+    // Dinamiese wrywingskoeffisient van laer
+    parameter Real rlaer = 0.015;
+    // Radius van die laer [m]
+    Real x1(start = 0);
+    // Pendulum hoekverplasing
+    Real x2(start = 0);
+    // Pendulum hoeksnelheid
+    Real Tw;
+    // Wrywing draaimoment
+    Real Dryf;
+    // Andrywingsdraaimoment
+    // Model van youtube.com/watch?v=3jofcOmvWj0
+    parameter Real M = 20;
+    // Massa van die pendulum [kg]
+    parameter Real I = 0.2;
+    // Traagheid van die fisiese pendulum [kg.m^2]
+    parameter Real L = 0.001;
+    // Lengte van die swaartepunt van die pendulum tot die rotasiepunt [m]
+    parameter Real g = 9.81;
+    // Gravitasieversnelling [m/s^2]
+    parameter Real mus = 0.06;
+    // Statiese wrywingskoeffisient van laer
+    parameter Real mud = 0.05;
+    // Dinamiese wrywingskoeffisient van laer
+    parameter Real rlaer = 0.015;
+    // Radius van die laer [m]
+    Real x1(start = 0);
+    // Pendulum hoekverplasing
+    Real x2(start = 0);
+    // Pendulum hoeksnelheid
+    Real Tw;
+    // Wrywing draaimoment
+    Real Dryf;
+    // Andrywingsdraaimoment
     Real mu;
-  // Wrywingskoeffisient van laer
+    // Wrywingskoeffisient van laer
+    // Wrywingskoeffisient van laer
     // Uitset [hoekverplasing in grade, hoeksnelheid in [rad/s]]
-  Modelica.Blocks.Interfaces.RealVectorOutput y_uit[2] "Posisie, spoed" annotation(
+    Modelica.Blocks.Interfaces.RealVectorOutput y_uit[2] "Posisie, spoed" annotation(
+    Modelica.Blocks.Interfaces.RealVectorOutput y_uit[2] "Posisie, spoed" annotation(
       Placement(transformation(origin = {100, 0}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {96, -16}, extent = {{-20, -20}, {20, 20}})));
+
   // Inset hoektempo versteuring
   Modelica.Blocks.Interfaces.RealInput d annotation(
       Placement(transformation(origin = {0, 84}, extent = {{-20, -20}, {20, 20}}, rotation = 90), iconTransformation(origin = {36, -58}, extent = {{-20, -20}, {20, 20}})));   
   
   
+
   equation
-  
     if x2 > 0.1 then
       mu = mud;
     else
       mu = mus;
     end if;
-    
-    Tw = sign(x2)*mu*M*g*rlaer; // Draaimoment a.g.v. wrywing [N.m]
+    Tw = sign(x2)*mu*M*g*rlaer;
+// Draaimoment a.g.v. wrywing [N.m]
+    Tw = sign(x2)*mu*M*g*rlaer;
+// Draaimoment a.g.v. wrywing [N.m]
     Dryf = u - M*g*L*cos(x1);
-    
     if abs(Dryf) > abs(Tw) then
       der(x2) = (u - Tw - M*g*L*cos(x1))/I + d;
     else
       der(x2) = 0 + d;
     end if;
-    
     der(x1) = x2;
+<<<<<<< Updated upstream
   // Uitset hoekverplasing in grade
+=======
+// Uitset hoekverplasing in grade
+>>>>>>> Stashed changes
     y_uit[1] = x1;
   // Uitset hoeksnelheid in rad/s
     y_uit[2] = x2;
+<<<<<<< Updated upstream
   annotation(
       Icon(graphics = {Line(origin = {2.9239, 9.03333}, points = {{29.0761, -67.0333}, {3.0761, -77.0333}, {-12.9239, -69.0333}, {-26.9239, -43.0333}, {-14.9239, -17.0333}, {-20.9239, 12.9667}, {-52.9239, 24.9667}, {-72.9239, 50.9667}, {-66.9239, 76.9667}, {-44.9239, 76.9667}, {-26.9239, 54.9667}, {-6.9239, 36.9667}, {15.0761, 14.9667}, {37.0761, 2.96667}, {73.0761, -49.0333}, {29.0761, -67.0333}}), Line(origin = {-48, 62}, points = {{0, 12}, {0, -12}}), Line(origin = {-48, 62}, points = {{-14, 0}, {14, 0}}), Ellipse(origin = {10, -4}, extent = {{-16, 16}, {16, -16}}), Line(origin = {10, -5}, points = {{0, 17}, {0, -15}}), Line(origin = {16, -4}, points = {{-22, 0}, {10, 0}})}));
   
@@ -117,7 +163,68 @@ package Gimbal
   
 
   end simpleRotor;
+=======
+    annotation(
+      Icon(graphics = {Line(origin = {2.9239, 9.03333}, points = {{29.0761, -67.0333}, {3.0761, -77.0333}, {-12.9239, -69.0333}, {-26.9239, -43.0333}, {-14.9239, -17.0333}, {-20.9239, 12.9667}, {-52.9239, 24.9667}, {-72.9239, 50.9667}, {-66.9239, 76.9667}, {-44.9239, 76.9667}, {-26.9239, 54.9667}, {-6.9239, 36.9667}, {15.0761, 14.9667}, {37.0761, 2.96667}, {73.0761, -49.0333}, {29.0761, -67.0333}}), Line(origin = {-48, 62}, points = {{0, 12}, {0, -12}}), Line(origin = {-48, 62}, points = {{-14, 0}, {14, 0}}), Ellipse(origin = {10, -4}, extent = {{-16, 16}, {16, -16}}), Line(origin = {10, -5}, points = {{0, 17}, {0, -15}}), Line(origin = {16, -4}, points = {{-22, 0}, {10, 0}})}),
+  Diagram(graphics = {Text(origin = {4, 73}, extent = {{34, -5}, {-34, 5}}, textString = "Angular rate disturbance"), Text(origin = {-76, -21}, extent = {{34, -5}, {-34, 5}}, textString = "Torque input")}));
+  end PhysicalPendulum;
+
+model VerticalRotor
+  parameter Real M = 30;
+  // Mass of rotor [kg]
+  parameter Real I = 0.3;
+  // Inertia of the rotor [kg.m^2]
+  parameter Real L = 0.001;
+  // Lengte van die swaartepunt van die pendulum tot die rotasiepunt [m]
+  parameter Real g = 9.81;
+  // Gravitasieversnelling [m/s^2]
+  parameter Real mus = 0.06;
+  // Statiese wrywingskoeffisient van laer
+  parameter Real mud = 0.05;
+  // Dinamiese wrywingskoeffisient van laer
+  parameter Real rlaer = 0.015;
+  // Radius van die laer [m]
+  Real x1(start = 0);
+  // Pendulum hoekverplasing
+  Real x2(start = 10);
+  // Pendulum hoeksnelheid [rad/s]
+  Real Tw;
+  // Wrywing draaimoment
+  Real mu;
+// Wrywingskoeffisient van laer
+
+// Torque input to the rotor
+  Modelica.Blocks.Interfaces.RealInput u annotation(
+    Placement(transformation(origin = {-100, 0}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {-80, 0}, extent = {{-20, -20}, {20, 20}})));
+Modelica.Blocks.Interfaces.RealVectorOutput y_uit[2] "Angle, Rotation speed" annotation(
+    Placement(transformation(origin = {100, 0}, extent = {{-20, -20}, {20, 20}}), iconTransformation(origin = {80, -2}, extent = {{-20, -20}, {20, 20}})));
+
+
+
+equation
+
+//Simply assume at first the dynamic friction is the only mode of friction
+  mu = mud;
+
+// Torque balance
+  Tw = sign(x2)*mu*M*g*rlaer; // Draaimoment a.g.v. wrywing [N.m]
+
+  
+
+  der(x2) = (u - Tw)/I;
+  der(x1) = x2;
+
+
+// Uitset hoekverplasing in grade
+  y_uit[1] = x1;
+// Uitset hoeksnelheid in rad/s
+  y_uit[2] = x2;
+  annotation(
+    Icon(graphics = {Rectangle(origin = {-2, 7}, extent = {{-34, 53}, {34, -53}}), Line(origin = {-2, -63}, points = {{0, -17}, {0, 17}}), Ellipse(origin = {10, 0}, extent = {{-10, 10}, {10, -10}}), Line(origin = {10, 2}, points = {{0, -12}, {0, 8}}), Line(origin = {8, 0}, points = {{-8, 0}, {12, 0}})}));
+end VerticalRotor;
+>>>>>>> Stashed changes
   annotation(
     Icon(graphics = {Rectangle(origin = {0, 26}, extent = {{-40, 36}, {40, -36}}), Line(origin = {22.08, 11.08}, points = {{-78.0814, 24.9186}, {-78.0814, -31.0814}, {33.9186, -31.0814}, {33.9186, 22.9186}}), Line(origin = {0, -36}, points = {{0, 16}, {0, -16}}), Line(origin = {-48, 24}, points = {{-8, 0}, {8, 0}}), Line(origin = {48, 24}, points = {{8, 0}, {-8, 0}})}),
-  uses(Modelica(version = "4.1.0")));
+    uses(Modelica(version = "4.1.0")));
+    uses(Modelica(version = "4.1.0")));
 end Gimbal;
