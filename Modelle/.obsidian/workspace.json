@@ -41,12 +41,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Pendulum.md",
+                "file": "Pendulum beheer.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Pendulum"
+              "title": "Pendulum beheer"
             }
           },
           {
@@ -78,7 +78,7 @@
             }
           }
         ],
-        "currentTab": 1
+        "currentTab": 2
       }
     ],
     "direction": "vertical"
@@ -227,12 +227,12 @@
       "obsidian-excalidraw-plugin:New drawing": false
     }
   },
-  "active": "748ed6bd4093cfb8",
+  "active": "40e7943f99202e7f",
   "lastOpenFiles": [
     "Pendulum.md",
+    "Pendulum beheer.md",
     "OpenModelica.md",
     "FMUsecondorder.md",
-    "Pendulum beheer.md",
     "Excalidraw/BeheerPendulumVryliggamDiagram.md",
     "Excalidraw/VryliggamDiagramPendulum.md",
     "FMU/FMU - Functional mockup unit.md",
