@@ -21,3 +21,10 @@ ct.bode_plot(sys, dB=True, Hz=False, deg=True, margins = True)
 plt.grid(True)
 plt.show()
 # %%
+gm, pm, wg, wp = ct.margin(sys)
+
+print(f"Gain Margin: {gm}")
+print(f"Phase Margin: {pm} grade")
+print(f"Gain Crossover Frekwensie: {wg} rad/s")
+print(f"Phase Crossover Frekwensie: {wp} rad/s")
+# %%
